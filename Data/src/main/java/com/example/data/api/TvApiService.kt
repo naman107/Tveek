@@ -1,6 +1,7 @@
 package com.example.data.api
 
 import com.example.data.model.TvShowResponse
+import com.example.data.model.TvShowSearchResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -14,7 +15,7 @@ interface TvApiService {
     @GET("search/movie")
     suspend fun getSearchedShows(
         @Query("query") showName: String
-    ): Response<TvShowResponse>
+    ): Response<TvShowSearchResponse>
 
     @GET("tv/{id}/similar")
     suspend fun getSimilarShows(

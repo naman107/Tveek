@@ -2,7 +2,7 @@ package com.example.data.model
 
 import com.example.domain.model.TvShow
 
-data class TvShowResponse(
+data class TvShowSearchResponse(
     val page: Int,
     val results: List<Result?>,
     val total_pages: Int,
@@ -11,19 +11,19 @@ data class TvShowResponse(
     data class Result(
         val id: Long,
         val backdrop_path: String?,
-        val name: String,
+        val title: String,
         val overview: String,
         val poster_path: String?,
     )
 }
 
-fun TvShowResponse.toShow(): TvShow {
+fun TvShowSearchResponse.toShow(): TvShow {
     val ls = ArrayList<TvShow.Result>()
     this.results.map {
         val obj = it?.let { it1 ->
             TvShow.Result(
                 id = it1.id,
-                name = it.name,
+                name = it.title,
                 overview = it.overview,
                 poster_path = it.poster_path
             )

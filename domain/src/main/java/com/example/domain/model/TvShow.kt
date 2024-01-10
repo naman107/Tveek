@@ -5,9 +5,9 @@ data class TvShow(
 ){
     data class Result(
         val id: Long,
-        val backdrop_path: String,
         val name: String,
         val overview: String,
-        val poster_path: String,
+        val poster_path: String?,
+        val isLiked: Boolean = false
     )
 }

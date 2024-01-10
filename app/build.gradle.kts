@@ -96,10 +96,18 @@ dependencies {
     //Logger
     implementation("com.jakewharton.timber:timber:5.0.1")
 
+    //live data
     implementation("androidx.compose.runtime:runtime:1.5.4")
     implementation("androidx.compose.runtime:runtime-livedata:1.5.4")
 
+    //view model delegation
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0-rc02")
+
+    //image loader
+    implementation("io.coil-kt:coil-compose:2.2.0")
+
+    //navigation
+    implementation("androidx.navigation:navigation-compose:2.7.5")
 
 //    implementation(project(mapOf("path" to ":Data")))
     implementation(project(mapOf("path" to ":domain")))
