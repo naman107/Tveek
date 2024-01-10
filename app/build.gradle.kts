@@ -77,6 +77,7 @@ dependencies {
     //Koin
 //    implementation("io.insert-koin:koin-android-viewmodel:3.5.3")
     implementation("io.insert-koin:koin-android:3.5.3")
+    implementation("io.insert-koin:koin-androidx-compose:3.5.3")
 
     //Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
@@ -97,6 +98,8 @@ dependencies {
 
     implementation("androidx.compose.runtime:runtime:1.5.4")
     implementation("androidx.compose.runtime:runtime-livedata:1.5.4")
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0-rc02")
 
 //    implementation(project(mapOf("path" to ":Data")))
     implementation(project(mapOf("path" to ":domain")))
