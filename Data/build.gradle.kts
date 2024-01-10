@@ -55,4 +55,6 @@ dependencies {
     //Logger
     implementation("com.jakewharton.timber:timber:5.0.1")
 
+    implementation(project(mapOf("path" to ":domain")))
+
 }

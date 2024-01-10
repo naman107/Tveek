@@ -1,6 +1,5 @@
 package com.example.tveek.di
 
-import com.example.data.api.TestClas
 import com.example.data.api.TvApiService
 import com.example.data.utils.AuthInterceptor
 import com.example.tveek.utils.API_URL
@@ -14,7 +13,6 @@ val networkModule = module {
     factory { provideOkHttpClient(get()) }
     factory { provideTvApi(get()) }
     single { provideRetrofit(get()) }
-    factory { TestClas(get()) } //remove later
 }
 
 fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
@@ -27,3 +25,4 @@ fun provideOkHttpClient(authInterceptor: AuthInterceptor): OkHttpClient {
 }
 
 fun provideTvApi(retrofit: Retrofit): TvApiService = retrofit.create(TvApiService::class.java)
+
