@@ -1,6 +1,6 @@
 package com.example.tveek.di
 
-import com.example.data.api.TvApiService
+import com.example.data.source.remote.TvApiService
 import com.example.data.utils.AuthInterceptor
 import com.example.tveek.utils.API_URL
 import okhttp3.OkHttpClient

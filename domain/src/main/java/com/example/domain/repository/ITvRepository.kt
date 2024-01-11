@@ -8,5 +8,4 @@ interface ITvRepository {
     suspend fun getTrendingShows(): Flow<DataState<TvShow>?>
     suspend fun getSearchedShows(showName: String): Flow<DataState<TvShow>?>
     suspend fun getSimilarShows(id: Long): Flow<DataState<TvShow>?>
-    suspend fun saveFavoriteShows(shows: List<TvShow>): Flow<Boolean>
 }

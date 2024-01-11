@@ -1,4 +1,4 @@
-package com.example.data.api
+package com.example.data.source.remote
 
 import com.example.data.model.TvShowResponse
 import com.example.data.model.TvShowSearchResponse

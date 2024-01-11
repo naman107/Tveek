@@ -1,6 +1,6 @@
 package com.example.tveek.di
 
-import com.example.data.api.TvApiService
+import com.example.data.source.remote.TvApiService
 import com.example.data.repository.TvRepositoryImpl
 import com.example.domain.repository.ITvRepository
 import com.example.domain.usecases.GetSearchedShowsUseCase
