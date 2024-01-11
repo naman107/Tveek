@@ -1,6 +1,6 @@
 package com.example.data.model
 
-import com.example.domain.model.TvShow
+import com.example.domain.models.TvShow
 
 data class TvShowSearchResponse(
     val page: Int,
@@ -25,7 +25,8 @@ fun TvShowSearchResponse.toShow(): TvShow {
                 id = it1.id,
                 name = it.title,
                 overview = it.overview,
-                poster_path = it.poster_path
+                poster_path = it.poster_path,
+                isLiked = false
             )
         }
         if (obj != null) {

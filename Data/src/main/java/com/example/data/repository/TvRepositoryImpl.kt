@@ -2,7 +2,7 @@ package com.example.data.repository
 
 import com.example.data.source.remote.TvApiService
 import com.example.data.model.toShow
-import com.example.domain.model.TvShow
+import com.example.domain.models.TvShow
 import com.example.domain.repository.ITvRepository
 import com.example.domain.utils.DataState
 import kotlinx.coroutines.flow.Flow

@@ -17,8 +17,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -28,20 +26,18 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
-import com.example.domain.model.TvShow
+import com.example.domain.models.TvShow
 import com.example.domain.utils.DataState
 import com.example.tveek.ui.components.ShowPosterView
 import com.example.tveek.viewmodels.TvShowsViewModels
-import timber.log.Timber
 
 @Composable
 fun ShowDetailsScreen(
     viewModel: TvShowsViewModels
-){
+) {
     val tvShow = viewModel.getTvShow()
-    LaunchedEffect(Unit){
+    LaunchedEffect(Unit) {
         tvShow?.id?.let {
-            Timber.d("ID: ${tvShow?.id}")
             viewModel.getSimilarShows(it)
         }
     }
@@ -67,8 +63,7 @@ fun ShowDetailsScreen(
         Text(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 12.dp, start = 8.dp)
-            ,
+                .padding(top = 12.dp, start = 8.dp),
             text = "Description",
             color = Color.Black,
             fontWeight = FontWeight.Bold,
@@ -78,8 +73,7 @@ fun ShowDetailsScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
-                .padding(top = 4.dp, start = 8.dp, end = 8.dp)
-            ,
+                .padding(top = 4.dp, start = 8.dp, end = 8.dp),
             text = "${tvShow?.overview}",
             color = Color.DarkGray,
             fontWeight = FontWeight.Normal,
@@ -89,38 +83,34 @@ fun ShowDetailsScreen(
         Text(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 12.dp, start = 8.dp)
-            ,
+                .padding(top = 12.dp, start = 8.dp),
             text = "Similar Shows",
             color = Color.Black,
             fontWeight = FontWeight.Bold,
             fontSize = 18.sp
         )
         Box {
-            when(data.value){
+            when (data.value) {
                 is DataState.Success -> {
                     val shows = (data.value as DataState.Success<TvShow>).data.results
                     LazyRow {
-                        items(shows){ show ->
+                        items(shows) { show ->
                             ShowPosterView(
                                 modifier = Modifier
                                     .width(96.dp)
                                     .height(148.dp)
                                     .padding(4.dp),
-                                posterUri = "https://image.tmdb.org/t/p/original${show.poster_path}",
-                                name = show.name,
-                                isLiked = remember {
-                                    mutableStateOf(show.isLiked)
-                                }
+                                show = show,
+                                fromHomeScreen = false
                             )
                         }
                     }
                 }
+
                 is DataState.Error -> {
-                    Timber.d("Is there error?")
                 }
+
                 else -> {
-                    Timber.d("Is there something else?")
                 }
             }
         }

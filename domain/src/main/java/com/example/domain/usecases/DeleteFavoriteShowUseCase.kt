@@ -2,8 +2,8 @@ package com.example.domain.usecases
 
 import com.example.domain.repository.IFavouriteTvRepository
 
-class GetFavouriteShowsUseCase(
+class DeleteFavoriteShowUseCase(
     private val repository: IFavouriteTvRepository
 ) {
-    suspend operator fun invoke() = repository.getFavoriteShows()
+    suspend operator fun invoke(id: Long) = repository.deleteFavorite(id)
 }

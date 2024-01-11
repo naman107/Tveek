@@ -8,11 +8,15 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.tveek.ui.screens.HomeScreen
 import com.example.tveek.ui.screens.ShowDetailsScreen
+import com.example.tveek.viewmodels.FavouriteTvShowViewModel
 import com.example.tveek.viewmodels.TvShowsViewModels
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun AppNavController(viewModel: TvShowsViewModels = koinViewModel()) {
+fun AppNavController(
+    tvShowsViewModel: TvShowsViewModels = koinViewModel(),
+    favouriteTvShowViewModel: FavouriteTvShowViewModel = koinViewModel()
+) {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
@@ -25,12 +29,12 @@ fun AppNavController(viewModel: TvShowsViewModels = koinViewModel()) {
         }
     ) {
         composable(route = Destinations.Home.route) {
-            HomeScreen(viewModel) {
+            HomeScreen(tvShowsViewModel,favouriteTvShowViewModel) {
                 navController.navigate(Destinations.Details.route)
             }
         }
         composable(route = Destinations.Details.route) {
-            ShowDetailsScreen(viewModel)
+            ShowDetailsScreen(tvShowsViewModel)
         }
     }
 }

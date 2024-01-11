@@ -4,17 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.model.TvShow
-import com.example.domain.repository.ITvRepository
+import com.example.domain.models.TvShow
 import com.example.domain.usecases.GetSearchedShowsUseCase
 import com.example.domain.usecases.GetSimilarShowsUseCase
 import com.example.domain.usecases.GetTrendingShowsUseCase
 import com.example.domain.utils.DataState
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import timber.log.Timber
 
 class TvShowsViewModels(
     private val getTrendingShowsUseCase: GetTrendingShowsUseCase,

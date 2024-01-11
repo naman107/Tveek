@@ -1,11 +1,10 @@
 package com.example.domain.usecases
 
-import com.example.domain.model.TvShow
-import com.example.domain.repository.ITvRepository
-import kotlinx.coroutines.flow.Flow
+import com.example.domain.models.TvShow
+import com.example.domain.repository.IFavouriteTvRepository
 
 class SaveFavouriteShowsUseCase(
-    private val repository: ITvRepository
+    private val repository: IFavouriteTvRepository
 ) {
-//    suspend operator fun invoke(tvShows: List<TvShow>): Flow<Boolean> = repository.saveFavoriteShows(tvShows)
+    suspend operator fun invoke(show: TvShow.Result) = repository.saveFavoriteShow(show)
 }
